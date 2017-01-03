@@ -57,7 +57,7 @@ object HorizontalBoxBlur {
     val splitLength = scala.math.ceil(src.height.toFloat / numTasks).toInt
     val splitPoints = 0 to src.height by splitLength
 
-    val stripes = splitPoints zip (splitPoints.tail :+ src.height)
+    val stripes = splitPoints zip splitPoints.tail
 
     val compsPool = stripes.map(
       (points) => task {

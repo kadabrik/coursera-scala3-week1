@@ -58,7 +58,7 @@ object VerticalBoxBlur {
     val splitLength = scala.math.ceil(src.width.toFloat / numTasks).toInt
     val splitPoints = 0 to src.width by splitLength
 
-    val stripes = splitPoints zip (splitPoints.tail :+ src.width)
+    val stripes = splitPoints zip splitPoints.tail
 
     val compsPool = stripes.map(
       (points) => task {
